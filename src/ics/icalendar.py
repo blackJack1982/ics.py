@@ -7,7 +7,7 @@ from attr.validators import instance_of
 from ics.component import Component
 from ics.converter.component import ComponentMetaInfo
 from ics.event import Event
-from ics.grammar import Container, string_to_container
+from ics.grammar import Container, lines_to_container, string_to_container
 from ics.timeline import Timeline
 from ics.todo import Todo
 
@@ -69,7 +69,10 @@ class Calendar(CalendarAttrs):
             if isinstance(imports, Container):
                 self.populate(imports)
             else:
-                containers = string_to_container(imports)
+                if isinstance(imports, str):
+                    containers = string_to_container(imports)
+                else:
+                    containers = lines_to_container(imports)
                 if len(containers) != 1:
                     raise ValueError("Multiple calendars in one file are not supported by this method."
                                      "Use ics.Calendar.parse_multiple()")
