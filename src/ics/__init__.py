@@ -12,14 +12,17 @@ from .todo import Todo
 __all__ = [
     *all_alarms,
     "Attendee",
-    "Event",
-    "Calendar",
     "Organizer",
+    "Component",
+    "Event",
+    "Geo",
+    "Container",
+    "ContentLine",
+    "Calendar",
     "Timespan",
     "EventTimespan",
     "TodoTimespan",
     "Todo",
-    "Component",
     "__version__"
 ]
 
