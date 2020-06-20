@@ -6,6 +6,7 @@ from .event import Event
 from .geo import Geo
 from .grammar import Container, ContentLine
 from .icalendar import Calendar
+from .rrule import rrule_eq  # ensure the monkey-patching is done
 from .timespan import EventTimespan, Timespan, TodoTimespan
 from .todo import Todo
 
